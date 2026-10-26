@@ -1,0 +1,9 @@
+{
+  "name": "每日 Dash · 睁眼第一页",
+  "short_name": "每日Dash",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F2F7FA",
+  "theme_color": "#0EA5E9",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
