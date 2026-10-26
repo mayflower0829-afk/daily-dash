@@ -66,7 +66,8 @@ const HOT_SOURCES = {
   weibo: { label: "微博", url: `${API}/v2/weibo` },
   zhihu: { label: "知乎", url: `${API}/v2/zhihu` },
   bili: { label: "B站", url: `${API}/v2/bili` },
-  douyin: { label: "抖音", url: `${API}/v2/douyin_hot` },
+  douyin: { label: "抖音", url: `${API}/v2/douyin` },
+  toutiao: { label: "头条", url: `${API}/v2/toutiao` },
 };
 let hotCur = "weibo";
 async function loadHot(source) {
