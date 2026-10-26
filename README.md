@@ -4,6 +4,12 @@
 
 **在线使用**：<https://cloud1-d4gsgj705497df85d-1501559031.tcloudbaseapp.com/daily/>
 
+## 工程特性
+
+- **PWA**：manifest + Service Worker——手机添加到主屏幕后全屏独立运行；壳资源缓存秒开
+- **断网兜底**：API 数据网络优先 + 缓存兜底，断网时展示最近一次成功的数据
+- **跨天自动刷新**：页面常开时零点后自动拉取新一天的数据，不用手动刷新
+
 ## 数据来源（全部免费开源）
 
 - **60s API**：开源项目 [vikiboss/60s](https://github.com/vikiboss/60s)——**自部署实例**（腾讯云 CloudBase 云托管），不依赖公共服务、无限流顾虑
