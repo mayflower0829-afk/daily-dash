@@ -4,6 +4,7 @@
 
 const API = "https://daily-api-335904-13-1501559031.sh.run.tcloudbase.com";
 const CD_KEY = "dailyDash.examDate";
+let curDate = null;
 const CITY_KEY = "dailyDash.city";
 const DEFAULT_EXAM = "2027-12-25";
 
@@ -126,6 +127,25 @@ function weatherText(code) {
   return m[code] || "—";
 }
 
+// ---------- 一言 ----------
+async function loadQuote() {
+  try {
+    const d = await getJSON("https://v1.hitokoto.cn/?c=i&c=k&max_length=36");
+    $("quoteText").textContent = "「" + d.hitokoto + "」";
+    $("quoteFrom").textContent = (d.from_who || "") + (d.from ? " ·「" + d.from + "」" : "");
+  } catch (e) {
+    $("quoteText").textContent = "——";
+  }
+}
+
+// ---------- 跨天自动刷新（页面常开时零点后自动拉取新一天数据） ----------
+function watchDayRollover() {
+  curDate = todayStr();
+  setInterval(() => {
+    if (todayStr() !== curDate) location.reload();
+  }, 60000);
+}
+
 // ---------- 初始化 ----------
 function init() {
   renderCountdown();
@@ -148,6 +168,9 @@ function init() {
     const c = $("cityInput").value.trim();
     if (c) loadWeather(c);
   });
+  loadQuote();
+  $("quoteRefresh").addEventListener("click", loadQuote);
+  watchDayRollover();
   // 倒计时弹层
   const dlg = $("cdDialog");
   $("cdBox").addEventListener("click", () => {

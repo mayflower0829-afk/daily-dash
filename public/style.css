@@ -66,3 +66,6 @@ dialog input { width: 100%; padding: 10px 12px; border: 1px solid var(--border);
 .btn.ghost { background: var(--bg); color: var(--muted); }
 #toast { position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%); background: rgba(20,33,43,.92); color: #fff; font-size: 13px; padding: 9px 18px; border-radius: 999px; opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 99; }
 #toast.show { opacity: 1; }
+
+.quote-text { font-size: 15px; font-weight: 600; margin-top: 6px; }
+.quote-from { font-size: 12px; color: var(--muted); margin-top: 2px; text-align: right; }

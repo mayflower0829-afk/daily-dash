@@ -47,6 +47,15 @@
     <ol class="hot-list" id="hotList"><li class="loading">加载中…</li></ol>
   </section>
 
+  <section class="card" id="secQuote">
+    <div class="card-head">
+      <div class="card-title">✒️ 一言</div>
+      <button class="btn mini" id="quoteRefresh">换一句</button>
+    </div>
+    <p class="quote-text" id="quoteText">加载中…</p>
+    <p class="quote-from" id="quoteFrom"></p>
+  </section>
+
   <section class="card" id="secWeather">
     <div class="card-head">
       <div class="card-title">🌤 天气</div>
@@ -76,6 +85,9 @@
 
 <div id="toast" role="status"></div>
 
-<script src="app.js?v=2"></script>
+<script src="app.js?v=3"></script>
+  <script>
+    if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+  </script>
 </body>
 </html>
