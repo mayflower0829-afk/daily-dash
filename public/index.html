@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0EA5E9">
+  <meta name="description" content="每日 Dash——大学生的睁眼第一页：60秒读懂世界、微博/知乎/B站热榜、天气、考研倒计时、农历。数据来自自部署 60s API 与 Open-Meteo。">
+  <title>每日 Dash · 睁眼第一页</title>
+  <meta property="og:title" content="每日 Dash · 睁眼第一页">
+  <meta property="og:description" content="60秒读懂世界 · 四平台热榜 · 天气 · 考研倒计时 · 农历——大学生的每日第一页。">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230EA5E9'/><text x='50' y='68' font-size='44' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>日</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="appHeader">
+  <div class="brand">
+    <h1>每日 Dash <span class="en">睁眼第一页</span></h1>
+    <span class="sub" id="dateLine">加载中…</span>
+  </div>
+  <div class="countdown-box" id="cdBox" title="点击修改目标日期">
+    <span class="cd-num" id="cdNum">--</span>
+    <span class="cd-label">天<br><em>距考研初试</em></span>
+  </div>
+</header>
+
+<main>
+
+  <section class="card" id="secNews">
+    <div class="card-head">
+      <div class="card-title">📰 60 秒读懂世界</div>
+      <a class="mini-link" id="newsImageLink" target="_blank" rel="noopener">查看日报长图 ↗</a>
+    </div>
+    <ol class="news-list" id="newsList"><li class="loading">加载中…</li></ol>
+    <p class="tip" id="newsTip"></p>
+  </section>
+
+  <section class="card" id="secHot">
+    <div class="card-head">
+      <div class="card-title">🔥 热榜</div>
+      <div class="chips" id="hotChips"></div>
+    </div>
+    <ol class="hot-list" id="hotList"><li class="loading">加载中…</li></ol>
+  </section>
+
+  <section class="card" id="secWeather">
+    <div class="card-head">
+      <div class="card-title">🌤 天气</div>
+      <form id="cityForm"><input type="text" id="cityInput" placeholder="输入城市，如 上海" value="蚌埠"><button class="btn mini" type="submit">查询</button></form>
+    </div>
+    <div id="weatherBody"><p class="loading">加载中…</p></div>
+  </section>
+
+  <footer>
+    <a href="/" style="color:var(--accent);text-decoration:none;">← 返回作品集主页</a>
+    <span> · API：自部署 <a href="https://github.com/vikiboss/60s" target="_blank" rel="noopener">60s</a> + Open-Meteo</span>
+  </footer>
+</main>
+
+<!-- 倒计时日期修改弹层 -->
+<dialog id="cdDialog">
+  <form method="dialog">
+    <h3>设置目标日期</h3>
+    <input type="date" id="cdDateInput">
+    <p class="hint">默认为 2027 考研初试预估日（2027-12-25），以官方公告为准。</p>
+    <div class="btn-row">
+      <button class="btn ghost" value="cancel">取消</button>
+      <button class="btn primary" id="cdSave">保存</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" role="status"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
